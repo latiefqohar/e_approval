@@ -32,7 +32,7 @@
 <table>
     <tr>
         <td>Nomor</td>
-        <td>: 005/<?php echo $surat['id_surat'] ?>-SETDA/2019</td>
+        <td>: 005/<?php echo $surat['id_surat'] ?>-<?php echo $this->session->userdata('departemen')?>/2019</td>
     </tr>
     <tr>
         <td>Lampiran</td>
@@ -40,11 +40,11 @@
     </tr>
     <tr>
         <td>Perihal</td>
-        <td>: <?php echo $surat['perihal'] ?></td>
+        <td>: <?php $surat['perihal'] ?></td>
     </tr>
 
 </table><br>
-<p><?php echo $surat['pembuka'] ?></p>
+<?php echo '<p style="text-align:justify;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $surat['pembuka'] .'</p>' ?>
 <br>
 <table>
     <tr>
@@ -69,42 +69,53 @@
     </tr>
 
 </table><br>
-<p><?php echo $surat['penutup'] ?></p><br><br>
+<?php echo '<p style="text-align:justify;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$surat['penutup'].'</p>' ?><br><br>
 <table align="right">
 
 <tr><td><strong> <P style="text-align:center;">SEKERTARIS DAERAH</P>   </strong></td></tr>
 <tr><td><strong><P style="text-align:center;">KABUPATEN TANGERANG</P></strong></td></tr>
-<tr><td><?php if($surat['status_approve']==4){?><img src="<?php echo base_url() ?>assets/img/ttd.png" width="200px" height="100px"><?php } ?></td></tr>
+<tr>
+    <td>
+        <?php if($surat['status_approve']==4){?>
+        <img src="<?php echo base_url() ?>assets/img/ttd.png" width="200px" height="100px">
+        <?php } ?>
+    </td>
+</tr>
 <tr><td><strong><P style="text-align:center;">Drs. MOCH MAESAL RASYID, M.Si</P></strong></td></tr>
 <tr height="-2px"><td><strong><P style="text-align:center;">NIP. 19650517196603</P></strong></td></tr>
 </table>
 <br><br>
 
 <?php if ($surat['status_approve']==4) { ?>
-<a href="<?php echo base_url() ?>surat/print/<?php echo $surat['id_surat'] ?>" target="blank" class="btn btn-success">Cetak</a>
-<a href="<?php echo base_url() ?>surat" class="btn btn-primary">Kembali</a>
-    <?php }elseif ($surat['status_approve']==6){ ?>
-
-<form action="<?php echo base_url() ?>surat/proses" method="post">
-<input type="hidden" name="id_surat" value="<?php echo $surat['id_surat'] ?>">
-<input type="hidden" name="jabatan" value="<?php echo $this->session->userdata('jabatan'); ?>">
-<p>Note For Reject</p>
-<textarea name="keterangan" id="" cols="30" rows="5"<?php if($this->session->userdata('jabatan')=='staff'){ echo 'readonly' ;} ?>> <?php if($this->session->userdata('jabatan')=='staff'){ echo $surat['note'] ;} ?></textarea><br>
-<?php if($this->session->userdata('jabatan')!='staff'){ ?>
-<input type="submit" class="btn btn-success" value="APPROVE" name="approve">
-<input type="submit" class="btn btn-danger" value="REJECT" name="reject">
-<?php } ?>
-</form>
+        <a href="<?php echo base_url() ?>surat/print/<?php echo $surat['id_surat'] ?>" target="blank" class="btn btn-success">Cetak</a>
+        <a href="<?php echo base_url() ?>surat" class="btn btn-primary">Kembali</a>
+<?php }elseif ($surat['status_approve']==6){ ?>
+        <form action="<?php echo base_url() ?>surat/proses" method="post">
+        <input type="hidden" name="id_surat" value="<?php echo $surat['id_surat'] ?>">
+        <input type="hidden" name="jabatan" value="<?php echo $this->session->userdata('jabatan'); ?>">
+        <p>Note For Reject</p>
+        <textarea name="keterangan" id="" cols="30" rows="5"<?php if($this->session->userdata('jabatan')=='staff'){ echo 'readonly' ;} ?>> <?php if($this->session->userdata('jabatan')=='staff'){ echo $surat['note'] ;} ?></textarea><br>
+        <?php if($this->session->userdata('jabatan')!='staff'){ ?>
+        <input type="submit" class="btn btn-success" value="APPROVE" name="approve">
+        <input type="submit" class="btn btn-danger" value="REJECT" name="reject">
+        <?php } ?>
+        </form>
 <?php }else{?>
-    <form action="<?php echo base_url() ?>surat/proses" method="post">
-<input type="hidden" name="id_surat" value="<?php echo $surat['id_surat'] ?>">
-<input type="hidden" name="jabatan" value="<?php echo $this->session->userdata('jabatan'); ?>">
-<p>Note For Reject</p>
-<textarea name="keterangan" id="" cols="30" rows="5"<?php if($this->session->userdata('jabatan')=='staff'){ echo 'readonly' ;} ?>> <?php if($this->session->userdata('jabatan')=='staff'){ echo $surat['note'] ;} ?></textarea><br>
-<?php if($this->session->userdata('jabatan')!='staff'){ ?>
-<input type="submit" class="btn btn-success" value="APPROVE" name="approve">
-<input type="submit" class="btn btn-danger" value="REJECT" name="reject">
-<?php } ?>
-</form>
-<a href="<?php echo base_url() ?>surat" class="btn btn-primary">Kembali</a>
+            <form action="<?php echo base_url() ?>surat/proses" method="post">
+        <input type="hidden" name="id_surat" value="<?php echo $surat['id_surat'] ?>">
+        <input type="hidden" name="jabatan" value="<?php echo $this->session->userdata('jabatan'); ?>">
+        <p>Note For Reject</p>
+        <textarea name="keterangan" id="" cols="30" rows="5"<?php if($this->session->userdata('jabatan')=='staff'){ echo 'readonly' ;} ?>> <?php if($this->session->userdata('jabatan')=='staff'){ echo $surat['note'] ;} ?></textarea><br>
+        <?php if($this->session->userdata('jabatan')!='staff'){ 
+            if($this->session->userdata('jabatan')=='sekda'){
+                echo "Dengan menekan tombol <strong>APPROVE</strong> anda bersedia memberikan tanda tangan anda dalam surat ini dan dengan penuh kesadaran tanpa paksaan siapaun";
+            }
+            ?>
+        <br><br>
+        <input type="submit" class="btn btn-success"  value="APPROVE" name="approve">
+        <input type="submit" class="btn btn-danger" value="REJECT" name="reject">
+        <a href="<?php echo base_url() ?>surat" class="btn btn-primary">Kembali</a>
+        <?php } ?>
+        </form>
+        
 <?php } ?>

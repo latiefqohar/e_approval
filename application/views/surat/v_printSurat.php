@@ -27,13 +27,14 @@
 
 <hr><hr>
 <P style="text-align:right;">Tigaraksa, <?php echo $surat['tanggal_surat'] ?></P>
-<p>Kepada Yth : <?php echo $surat['kepada'] ?></p>
-<p>Di Tempat</p>
+<p style="text-align:right;">Kepada Yth : </p>
+<p style="text-align:right;"><?php echo $surat['kepada'] ?></p>
+<p style="text-align:right;">Di Tempat</p>
 
 <table>
     <tr>
         <td>Nomor</td>
-        <td>: 005/<?php echo $surat['id_surat'] ?>-SETDA/2019</td>
+        <td>: 005/<?php echo $surat['id_surat'] ?>-<?php echo $this->session->userdata('departemen')?>/2019</td>
     </tr>
     <tr>
         <td>Lampiran</td>
@@ -44,10 +45,10 @@
         <td>: <?php echo $surat['perihal'] ?></td>
     </tr>
 
-</table><br>
-<p><?php echo $surat['pembuka'] ?></p>
+<table ><br>
+<?php echo '<p style="text-align:justify;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. $surat['pembuka'] .'</p>' ?>
 <br>
-<table>
+<table style="margin-left:20px;">
     <tr>
         <td>Hari</td>
         <td>:<?php echo namahari($surat['tanggal_undangan']) ?></td>
@@ -70,7 +71,7 @@
     </tr>
 
 </table><br>
-<p><?php echo $surat['penutup'] ?></p><br><br>
+<?php echo '<p style="text-align:justify;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$surat['penutup'].'</p>' ?><br><br>
 <table align="right">
 
 <tr><td><strong> <P style="text-align:center;">SEKERTARIS DAERAH</P>   </strong></td></tr>

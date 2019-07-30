@@ -8,6 +8,8 @@
      {
          parent::__construct();
          $this->load->model('m_crud');
+         $this->load->library('session');
+         
          
      }
      
@@ -44,7 +46,7 @@
             );
             $this->session->set_userdata($arraydata);
             
-            redirect('surat','refresh');
+            redirect('dashboard','refresh');
             
          }
          

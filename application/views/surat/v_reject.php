@@ -30,7 +30,7 @@
         
         ?>
         <tr>
-        <td>005/<?php echo $d->id_surat ?>-SETDA/2019</td>
+        <td>005/<?php echo $d->id_surat ?>-<?php echo $this->session->userdata('departemen')?>/2019</td>
         <td><?php echo $d->tanggal_surat ?></td>
         <td><?php echo $d->perihal ?></td>
         <td><?php echo $d->kepada ?></td>

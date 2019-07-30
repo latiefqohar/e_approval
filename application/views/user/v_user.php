@@ -29,11 +29,12 @@
         <tr>
         <th>No</th>
         <th>NIK</th>
-        <th>nama</th>
-        <th>Departemen</th>
+        <th>Nama</th>
+        <th>Bagian</th>
         <th>Jabatan</th>
+        <th>Email</th>
         <th>Username</th>
-        <th>action</th>
+        <th>Action</th>
 
         </tr>
     </thead>
@@ -49,6 +50,7 @@
         <td><?php echo $d->nama ?></td>
         <td><?php echo $d->departemen ?></td>
         <td><?php echo $d->jabatan ?></td>
+        <td><?php echo $d->email ?></td>
         <td><?php echo $d->username ?></td>
         <td>
             <a href="<?php echo base_url() ?>user/edit/<?php echo $d->id_user ?>" class="btn btn-primary"> Ubah</a>

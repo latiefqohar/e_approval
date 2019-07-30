@@ -27,6 +27,7 @@
            $jabatan=$this->input->post('jabatan');
            $username=$this->input->post('username');
            $password=$this->input->post('password');
+           $email=$this->input->post('email');
 
            
             $data = array(
@@ -34,6 +35,7 @@
                 'nama'=>$nama,
                 'departemen'=>$departemen,
                 'jabatan'=>$jabatan,
+                'email'=>$email,
                 'username'=>$username,
                 'password'=>md5($password)
             );

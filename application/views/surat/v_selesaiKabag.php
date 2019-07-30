@@ -14,7 +14,7 @@
         <th>no surat</th>
         <th>Tanggal Surat</th>
         <th>Perihal</th>
-        <th>Tujuan Undangan</th>
+        <th>Departemen</th>
         <th>Tanggal undangan</th>
         <th>Tempat Undangan</th>
         <th>Status</th>
@@ -30,10 +30,10 @@
         
         ?>
         <tr>
-        <td>005/<?php echo $d->id_surat ?>-SETDA/2019</td>
+        <td>005/<?php echo $d->id_surat ?>-<?php echo $this->session->userdata('departemen')?>/2019</td>
         <td><?php echo $d->tanggal_surat ?></td>
         <td><?php echo $d->perihal ?></td>
-        <td><?php echo $d->kepada ?></td>
+        <td><?php echo $d->departemen?></td>
         <td><?php echo $d->tanggal_undangan ?></td>
         <td><?php echo $d->tempat ?></td>
         <td ><?php 

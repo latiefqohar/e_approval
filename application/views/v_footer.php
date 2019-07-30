@@ -66,12 +66,40 @@ function data(){
         dataType:'json',
         success:function(data){
             console.log(data)
-            $('#total').html('<span class="badge badge-danger">'+data.total+'</span>');
-           $('#kasubag').html('Approve Kasubag <span class="badge badge-danger">'+data.kasubag+'</span>');
-           $('#kabag').html('Approve kabag <span class="badge badge-danger">'+data.kabag+'</span>');
-           $('#asda').html('Approve asda <span class="badge badge-danger">'+data.asda+'</span>');
-           $('#sekda').html('Approve sekda <span class="badge badge-danger">'+data.sekda+'</span>');
-           $('#reject').html('Approve Kasubag <span class="badge badge-danger">'+data.reject+'</span>');
+           if(data.totalumum!=0){
+             if(data.totalumum!=0){
+              $('#total').html('<span class="badge badge-danger">'+data.totalumum+'</span>');  
+             }
+             if(data.kabagumum!=0){
+              $('#kabag').html('Approve kabag <span class="badge badge-danger">'+data.kabagumum+'</span>');
+             }
+              if(data.asdaumum!=0){
+                $('#asda').html('Approve asda <span class="badge badge-danger">'+data.asdaumum+'</span>');
+              } 
+              if(data.sekdaumum!=0){
+                $('#sekda').html('Approve sekda <span class="badge badge-danger">'+data.sekdaumum+'</span>');
+              } 
+              if(data.rejectumum!=0){
+                $('#reject').html('REJECTED <span class="badge badge-danger">'+data.rejectumum+'</span>');
+              }     
+
+           }
+           
+          
+           if(data.baruumum>0){
+              $('#baru1').html('NEW <span class="badge badge-danger">'+data.baruumum+'</span>');
+              $('#total1').html('<span class="badge badge-danger">'+data.baruumum+'</span>');
+           }
+           if(data.aprove_kabag>0){
+              $('#baru2').html('NEW <span class="badge badge-danger">'+data.approve_kabag+'</span>');
+              $('#total2').html('<span class="badge badge-danger">'+data.approve_kabag+'</span>');
+
+           }
+           if(data.approve_asda>0){
+              $('#baru3').html('NEW <span class="badge badge-danger">'+data.approve_asda+'</span>');
+              $('#total3').html('<span class="badge badge-danger">'+data.approve_asda+'</span>');
+           }
+           
         }
     });
   }

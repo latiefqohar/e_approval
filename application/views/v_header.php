@@ -41,12 +41,12 @@
 
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">
-<?php if($this->session->userdata('jabatan')=='staff'){?>
+
+    <!-- staff organisasi -->
+<?php if($this->session->userdata('jabatan')=='staff'&&$this->session->userdata('departemen')=='organisasi'){?>
   <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="total">
-          
+        <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="total"> 
         </a>
-     
       </li>
       <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -54,16 +54,98 @@
           <span class="badge badge-danger"></span>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
-          <a class="dropdown-item" href="<?php echo base_url() ?>surat/kasubag_new" id="kasubag"></a>
-          <a class="dropdown-item" href="<?php echo base_url() ?>surat/kabag_new" id="kabag"></a>
-          <a class="dropdown-item"href="<?php echo base_url() ?>surat/asda_new" id="asda"></a>
-          <a class="dropdown-item" href="<?php echo base_url() ?>surat/sekda_new" id="sekda"></span></a>
-          <a class="dropdown-item" href="<?php echo base_url() ?>surat/reject_new" id="reject"></a>
-          
-       
+          <a class="dropdown-item" href="<?php echo base_url() ?>surat/kabag_new" id="kabag">Approved Kabag</a>
+          <a class="dropdown-item"href="<?php echo base_url() ?>surat/asda_new" id="asda">Approved Asda</a>
+          <a class="dropdown-item" href="<?php echo base_url() ?>surat/sekda_new" id="sekda">Approved Sekda</span></a>
+          <a class="dropdown-item" href="<?php echo base_url() ?>surat/reject_new" id="reject">Rejected</a>
         </div>
       </li>
-<?php } ?>
+
+
+      <!-- staff umum -->
+<?php }elseif($this->session->userdata('jabatan')=='staff'&&$this->session->userdata('departemen')=='umum'){?>
+  <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="total">  
+        </a>
+      </li>
+      <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-bell fa-fw"></i>
+          <span class="badge badge-danger"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
+         <a class="dropdown-item" href="<?php echo base_url() ?>surat/kabag_new" id="kabag">Approved Kabag</a>
+          <a class="dropdown-item"href="<?php echo base_url() ?>surat/asda_new" id="asda">Approved Asda</a>
+          <a class="dropdown-item" href="<?php echo base_url() ?>surat/sekda_new" id="sekda">Approved Sekda</span></a>
+          <a class="dropdown-item" href="<?php echo base_url() ?>surat/reject_new" id="reject">Rejected</a>
+        </div>
+      </li>
+
+      <!-- kabag organisasi -->
+<?php }elseif($this->session->userdata('jabatan')=='kabag'&&$this->session->userdata('departemen')=='organisasi'){ ?>
+  <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="total1">  
+        </a>
+      </li>
+      <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-bell fa-fw"></i>
+          <span class="badge badge-danger"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
+         <a class="dropdown-item" href="<?php echo base_url() ?>surat/kasubag_new" id="baru1">NEW</a>
+        </div>
+      </li>
+
+      <!-- kabag umum -->
+<?PHP }elseif($this->session->userdata('jabatan')=='kabag'&&$this->session->userdata('departemen')=='umum'){ ?>
+  <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="total1">  
+        </a>
+      </li>
+      <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-bell fa-fw"></i>
+          <span class="badge badge-danger"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
+         <a class="dropdown-item" href="<?php echo base_url() ?>surat/kasubag_new" id="baru1">NEW</a>
+        </div>
+      </li>
+
+
+      <!-- asisten -->
+<?PHP }elseif($this->session->userdata('jabatan')=='asisten'){ ?>
+  <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="total2">  
+        </a>
+      </li>
+      <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-bell fa-fw"></i>
+          <span class="badge badge-danger"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
+         <a class="dropdown-item" href="<?php echo base_url() ?>surat/asda_view" id="baru2">NEW</a>
+        </div>
+      </li>
+
+      <!-- sekda -->
+<?PHP }elseif($this->session->userdata('jabatan')=='sekda'){ ?>
+  <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="total3">  
+        </a>
+      </li>
+      <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-bell fa-fw"></i>
+          <span class="badge badge-danger"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
+         <a class="dropdown-item" href="<?php echo base_url() ?>surat/sekda_view" id="baru3">NEW</a>
+        </div>
+      </li>
+<?PHP } ?>
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-user-circle fa-fw"></i><span><?php echo $this->session->userdata('nama') ?></span>

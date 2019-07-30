@@ -5,7 +5,19 @@
     <i class="fas fa-table"></i>
     Data user</div>
     <div class="card-body">
-    <a href="<?php echo base_url() ?>surat/add" class="btn btn-primary"> Tambah Data</a><br> <br>
+    <a href="<?php echo base_url() ?>surat/add" class="btn btn-primary"> Tambah Data</a> 
+    <div class="float-right">
+    <form action="<?php echo base_url() ?>surat/printbydate" method="post">
+    <input type="date" name="tanggal_mulai" placeholder="tanggal mulai">s/d
+    <input type="date" name="tanggal_selesai" placeholder="tanggal Akhir">
+    <button type="submit" class="btn btn-primary">Cetak</button>
+    <a href="<?php echo base_url() ?>surat/cetak_arsip_keluar" target="blank" class="btn btn-success"> Cetak Seluruh Arsip</a>
+    </form>
+  
+   
+    </div>
+    
+    <br> <br>
     <div class="table-responsive">
     
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -14,7 +26,7 @@
         <th>no surat</th>
         <th>Tanggal Surat</th>
         <th>Perihal</th>
-        <th>Tujuan Undangan</th>
+        <th>Bagian</th>
         <th>Tanggal undangan</th>
         <th>Tempat Undangan</th>
         <th>Status</th>
@@ -30,10 +42,10 @@
         
         ?>
         <tr>
-        <td>005/<?php echo $d->id_surat ?>-SETDA/2019</td>
+        <td>005/<?php echo $d->id_surat ?>-<?php echo $this->session->userdata('departemen')?>/2019</td>
         <td><?php echo $d->tanggal_surat ?></td>
         <td><?php echo $d->perihal ?></td>
-        <td><?php echo $d->kepada ?></td>
+        <td><?php echo $d->departemen ?></td>
         <td><?php echo $d->tanggal_undangan ?></td>
         <td><?php echo $d->tempat ?></td>
         <td ><?php 

@@ -1,7 +1,7 @@
 <div class="card mb-3">
     <div class="card-header">
     <i class="fas fa-table"></i>
-    Input user</div>
+    Input Surat</div>
     <div class="card-body">
         <div class="table-responsive">
     <form action="<?php echo base_url() ?>surat/add" method='post'>
@@ -26,10 +26,7 @@
                 <td>Perihal</td>
                 <td><input type="text" name="perihal" class="form-control"  required></td>
             </tr>
-            <tr>
-                <td>Tanggal Surat</td>
-                <td><input type="date" name="tanggal_surat" class="form-control" required></td>
-            </tr>
+          
             <tr>
                 <td>Kepada</td>
                 <td><input type="text" name="kepada" class="form-control"  required></td>
@@ -57,14 +54,6 @@
             <tr>
                 <td>Penutup</td>
                 <td><textarea rows="4" cols="50" name="penutup" class="form-control"></textarea></td>
-            </tr>
-            <tr>
-                <td>Mengetahui</td>
-                <td><input type="text" name="mengetahui" class="form-control"  required></td>
-            </tr>
-            <tr>
-                <td>Tembusan</td>
-                <td><input type="text" name="tembusan" class="form-control"  required></td>
             </tr>
             <tr>
             <td colspan='2'>

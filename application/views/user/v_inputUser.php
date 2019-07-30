@@ -16,8 +16,13 @@
             </tr>
             
             <tr>
-                <td>Departemen</td>
-                <td><input type="text" name="departemen" class="form-control" value="organisasi" required readonly></td>
+                <td>Bagian</td>
+                <td>
+                <select name="departemen" class="form-control" required>
+                    <option value="">--Silahkan Pilih--</option>
+                    <option value="organisasi">Organisasi</option>
+                    <option value="umum">Umum</option>
+                </select>
             </tr>
             
             <tr>
@@ -32,6 +37,10 @@
                         <option  value="sekda">Sekda</option>
                     </select>
                 </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="email" class="form-control" required></td>
             </tr>
             <tr>
                 <td>Username</td>

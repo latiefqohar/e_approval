@@ -19,9 +19,9 @@
 <div class="card mb-3">
     <div class="card-header">
     <i class="fas fa-table"></i>
-    Data user</div>
+    Data History Surat</div>
     <div class="card-body">
-    <a href="<?php echo base_url() ?>surat/add" class="btn btn-primary"> Tambah Data</a><br> <br>
+    <!-- <a href="<?php echo base_url() ?>surat/add" class="btn btn-primary"> Tambah Data</a><br> <br> -->
     <div class="table-responsive">
     
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -43,7 +43,7 @@
         
         ?>
         <tr>
-        <td>005/<?php echo $d->id_surat ?>-SETDA/2019</td>
+        <td>005/<?php echo $d->id_surat ?>-<?php echo $this->session->userdata('departemen')?>/2019</td>
         <?php if($d->status=='approve') {?>
         <td><span class="badge badge-success">Approved</span></td>
         <?php }else if($d->status=='reject') {?>

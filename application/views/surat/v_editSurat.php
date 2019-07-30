@@ -55,14 +55,6 @@
                 <td><textarea rows="4" cols="50" name="penutup" class="form-control"><?php echo $surat['penutup'] ?></textarea></td>
             </tr>
             <tr>
-                <td>Mengetahui</td>
-                <td><input type="text" name="mengetahui" class="form-control" value="<?php echo $surat['mengetahui'] ?> " required></td>
-            </tr>
-            <tr>
-                <td>Tembusan</td>
-                <td><input type="text" name="tembusan" class="form-control" value="<?php echo $surat['tembusan'] ?> " required></td>
-            </tr>
-            <tr>
             <td colspan='2'>
                 <input type="submit" class="btn btn-success float-right" name="update" value="Update Data">
                 <a href="<?php echo base_url() ?>/surat" class="btn btn-info float-right"> Kembali</a></<input>
